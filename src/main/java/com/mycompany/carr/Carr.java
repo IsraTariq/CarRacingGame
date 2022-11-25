@@ -19,7 +19,7 @@ try{
             Carr carobj = new Carr();
             carobj.add(tire);
             carobj.setVisible(true);
-            carobj.setSize(525,770);
+            carobj.setSize(508,770);
             carobj.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             carobj.setResizable(false);
         }catch(IOException e){System.out.println(e);System.out.println("Exiting");}

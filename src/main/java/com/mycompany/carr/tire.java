@@ -8,9 +8,9 @@ import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.*;
@@ -230,12 +230,17 @@ public class tire extends JPanel implements ActionListener,KeyListener{
                   time.stop();
                   game = false;
                   restart = false;   
+                  
                
 try{
                            if(score > HIGHscore){
                             write = new FileWriter("C:\\\\Users\\\\hp\\\\Desktop\\\\Scoreofplayer1.txt",true);
+                            write.write('\n');
+                            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("E, MMM dd yyyy HH:mm:ss");
+                            LocalDateTime now = LocalDateTime.now();
+                            write.write(dtf.format(now));
+                            write.write('\n');
                             write.write(String.valueOf(score));
-                            write.append('\n');
                             HIGHscore = score;
                             write.close();
                         }
@@ -252,8 +257,13 @@ try{
       
                         if(score >HIGHscore){
                             write = new FileWriter("C:\\\\Users\\\\hp\\\\Desktop\\\\Scoreofplayer2.txt",true);
+                          
+                            write.write('\n');
+                            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("E, MMM dd yyyy HH:mm:ss");
+                            LocalDateTime now = LocalDateTime.now();
+                            write.write(dtf.format(now));
+                            write.write('\n');
                             write.write(String.valueOf(score));
-                            write.append('\n');
                             HIGHscore = score;
                             write.close();
                         }
@@ -261,7 +271,7 @@ try{
             }
         }
     }
-   
+  
     
     public void drawitalicimage(Graphics2D g2d){
         g2d.drawImage(playercar13,car3.x,car3.y,this);
